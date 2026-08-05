@@ -1,0 +1,94 @@
+{
+  "title": "AMD Physical AI Demo Film",
+  "duration_seconds": 299,
+  "duration_label": "4:59",
+  "resolution": "1920x1080",
+  "fps": 30,
+  "audio": {
+    "voice": "Kokoro-82M af_heart English voice",
+    "voice_speed": 0.96,
+    "score": "Deterministic original FFmpeg low-frequency pad with fade-in and fade-out",
+    "embedded_in_deliverables": true
+  },
+  "visual_assets": [
+    {
+      "path": "assets/generated/amd-evidence-blueprint.png",
+      "role": "Generated editorial blueprint visual for the thesis card",
+      "sha256": "e5f24b781e33db6f10ca3c4c8560cdb095a073be087044e1bd7cc0a46b639361"
+    }
+  ],
+  "primary_web_asset": "assets/videos/amd-physical-ai-demo-en.mp4",
+  "deliverables": [
+    {
+      "path": "assets/videos/amd-physical-ai-demo-en.mp4",
+      "language": "English",
+      "sha256": "88fb704410c34c5f9aaa477190d19fa7f0e56c404018209caaa67fdf2fbe26d3"
+    },
+    {
+      "path": "assets/videos/amd-physical-ai-demo-zh.mp4",
+      "language": "Chinese",
+      "sha256": "c0e58e08770242bc9c520514ab82d68409afe0ef0bceb2967acc0c4446f143e9"
+    },
+    {
+      "path": "assets/videos/amd-physical-ai-demo-bilingual.mp4",
+      "language": "Bilingual",
+      "sha256": "633bbdccf1fe9d1a35d550e4b89edc8e43cca031d2a1d39bf499aebbbda8a06d"
+    },
+    {
+      "path": "assets/videos/amd-physical-ai-demo.en.srt",
+      "language": "English subtitles",
+      "sha256": "d88c5a2589b53733a1dfeaa28330d8cb6f84095960d99ead26bd46d22432cfd5"
+    },
+    {
+      "path": "assets/videos/amd-physical-ai-demo.zh.srt",
+      "language": "Chinese subtitles",
+      "sha256": "f1655714e04b75deecdb783b4233391455765d396fc355e43fe57c31f85a0fcb"
+    },
+    {
+      "path": "assets/videos/amd-physical-ai-demo.zh-en.srt",
+      "language": "Bilingual subtitles",
+      "sha256": "f7d5ac0c04c974ff4a0ffa716901450f40b4c948aa76d685d2109f36677365da"
+    },
+    {
+      "path": "assets/videos/perceptive-cbf-rl/pacman-g1-amd-replay.mp4",
+      "language": "Unitree G1 AMD replay",
+      "sha256": "3e0c5c95538616271d3eb9c7ed4ef8ac50c741594684d4245c23b87008d430c7"
+    },
+    {
+      "path": "assets/posters/perceptive-cbf-rl/pacman-g1-amd-replay.jpg",
+      "language": "Unitree G1 poster",
+      "sha256": "f1b75932d8de74e8581db247cf5a18cb0aff93fc406c07e1db71212dc58501c8"
+    },
+    {
+      "path": "data/perceptive-cbf-rl-g1/eval_info.json",
+      "language": "Unitree G1 evaluation JSON",
+      "sha256": "55989052745b4434899da486c35e4017e5227a7975d77f590fbf11cb0364355c"
+    },
+    {
+      "path": "data/perceptive-cbf-rl-g1/run_manifest.json",
+      "language": "Unitree G1 run manifest",
+      "sha256": "32f5f6863b30a53ff471363bf7a925157708d1ecf201c5c7e42977b24fe121cb"
+    }
+  ],
+  "sequence": [
+    "DexJoCo success hook",
+    "AMD ROCm and JAX stack",
+    "RoboCasa365 success cases",
+    "DexJoCo multi-task evidence",
+    "official metrics and evidence contract",
+    "DISCOVERSE multi-view replay",
+    "3DGS ROCm rendering",
+    "AMD execution and reproducibility",
+    "success trace and release checklist",
+    "PAC-MAN predictive safety control with Unitree G1",
+    "stage diagnostics",
+    "release close"
+  ],
+  "source": {
+    "composition": "video/hyperframes/index.html",
+    "storyboard": "video/hyperframes/STORYBOARD.md",
+    "script": "video/hyperframes/SCRIPT.md",
+    "shot_manifest": "video/hyperframes/data/shot-manifest.json",
+    "render_command": "HYPERFRAMES_BROWSER_PATH=/snap/chromium/current/usr/lib/chromium-browser/chrome HYPERFRAMES_WORKERS=2 ./video/hyperframes/render_delivery.sh"
+  }
+}
