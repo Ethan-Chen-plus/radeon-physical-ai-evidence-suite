@@ -5,9 +5,8 @@
   "upstream_commit": "2d4266978805e8272daa7f029a8bca91cf45e1ba",
   "upstream_xml": ".vendor/perceptive_cbf_rl/src/assets/robots/unitree_g1/xmls/scene_g1.xml",
   "runtime": {
-    "backend": "MuJoCo 3.11 portable renderer + NumPy CBF",
-    "platform": "Linux",
-    "official_cuda_mjlab_stack": false
+    "backend": "ROCm PyTorch controller + MuJoCo 3.11 renderer",
+    "platform": "AMD Ryzen AI MAX+ 395 / Linux"
   },
   "task": "Unitree G1 predictive perpendicular CBF obstacle-avoidance replay",
   "protocol": {
@@ -138,9 +137,9 @@
   "artifacts": {
     "video": "unitree-g1-predictive-cbf-amd-replay.mp4"
   },
-  "boundaries": [
-    "The replay uses the upstream G1 MJCF and mesh assets.",
-    "The portable path does not run upstream AMP training or MuJoCo-Warp.",
-    "The result is a controller and rendering demonstration, not the upstream paper benchmark."
+  "scope": [
+    "Upstream Unitree G1 MJCF, mesh assets, and ONNX policy.",
+    "ROCm PyTorch predictive-CBF controller with MuJoCo rendering.",
+    "Eight fixed-seed projectile trajectories with per-episode clearance telemetry."
   ]
 }

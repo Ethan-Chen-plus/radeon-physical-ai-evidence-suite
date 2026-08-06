@@ -11,7 +11,7 @@ multi-view rendering, performance telemetry, and SHA-pinned evidence.
 |---|---|
 | Technical report | [English PDF](../../output/pdf/datawhale-eai-radeon-physical-ai-technical-report.pdf) and [source](../../docs/TECHNICAL_REPORT.md) |
 | Dedicated source repository | [Ethan-Chen-plus/radeon-physical-ai-evidence-suite](https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite) |
-| Frozen source revision | [v1.0.1-amd-hackathon-english](https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite/releases/tag/v1.0.1-amd-hackathon-english) |
+| Frozen source revision | [v1.0.2-amd-hackathon-final](https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite/releases/tag/v1.0.2-amd-hackathon-final) |
 | Reproducibility README | [Step-by-step AMD guide](../../docs/REPRODUCIBILITY.md) |
 | Demonstration video | [4:59 English 1080p video](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/amd-physical-ai-demo-en.mp4) |
 | Supplementary showcase | [English interactive site](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/) |
@@ -44,7 +44,7 @@ multi-view rendering, performance telemetry, and SHA-pinned evidence.
 ```bash
 git clone https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite.git
 cd radeon-physical-ai-evidence-suite
-git checkout v1.0.1-amd-hackathon-english
+git checkout v1.0.2-amd-hackathon-final
 python3 scripts/validate_public_bundle.py
 ```
 
@@ -55,3 +55,8 @@ Expected result: `PUBLIC_BUNDLE_OK`.
 **Kewei Chen - project lead and primary maintainer.** System architecture, AMD
 ROCm and JAX migration, simulator integration, model training and evaluation,
 evidence validation, technical report, demo film, and public showcase.
+
+**Yayu Long - evaluation and learning experience contributor.** Learner-facing
+AMD environment and notebook validation, evaluation record and representative
+video review, reproduction documentation, and final submission quality
+assurance.

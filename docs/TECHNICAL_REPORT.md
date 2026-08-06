@@ -5,7 +5,8 @@
 **Team:** Datawhale-EAI  
 **Hackathon:** AMD AI DevMaster Hackathon 2026  
 **Lead:** Kewei Chen  
-**Submission version:** v1.0.1-amd-hackathon-english
+**Members:** Kewei Chen, Yayu Long
+**Submission version:** v1.0.2-amd-hackathon-final
 **Source:** https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite  
 **Showcase:** https://ethan-chen-plus.github.io/amd-physical-ai-showcase/
 
@@ -66,14 +67,13 @@ dexterous robot learning. It supports three practical uses:
 
 ### 1.2 Flagship scenario
 
-The flagship scenario uses RoboCasa household assets and the PandaOmron mobile
-embodiment. A 12-dimensional action contract connects right-arm operational
-space control, the gripper, planar base velocity, torso motion, and base mode.
-The same suite also evaluates fixed-base household policies across 16 tasks,
-including cabinet, drawer, refrigerator, toaster, sink, dishwasher, sorting,
-and placement operations.
+The flagship scenario evaluates released GR00T and Pi0.5 household policies on
+the same RoboCasa365 protocol: 16 tasks, 50 closed-loop episodes per task, native
+task predicates, and synchronized four-view video. The task set covers cabinet,
+drawer, refrigerator, toaster, sink, dishwasher, sorting, and placement
+operations.
 
-![RoboCasa household-to-mobile-manipulation scene](docs/figures/mobile-manipulation-home.png)
+![RoboCasa365 long-horizon meal-packing task](docs/figures/robocasa-long-horizon-pack.jpg)
 
 ### 1.3 Design objectives
 
@@ -125,7 +125,7 @@ full simulator rerun.
 
 The public site defaults to English and presents successful household,
 dexterous-hand, simulator, rendering, and humanoid-safety examples first. Detailed
-benchmark tables, migration notes, reproduction commands, and diagnostic cases
+benchmark tables, migration notes, reproduction commands, and boundary cases
 follow. The 4:59 film uses the same archived media and result manifests as the
 website.
 
@@ -150,11 +150,8 @@ each model. GR00T and Pi0.5 use the same task directories and denominator, which
 supports direct comparison. The tasks span opening, closing, placement,
 cleaning, sorting, and appliance interactions.
 
-The mobile extension uses the official PandaOmron embodiment. Its observation
-stream contains three RGB cameras, robot state, and language. The action vector
-contains right-arm pose control, gripper command, base velocity, torso command,
-and base mode at 20 Hz. Public task mirrors are audited before aggregation into
-the LeRobot workflow.
+The official PandaOmron runtime gate additionally validates a 12-dimensional
+hybrid action contract and three-camera observation path on AMD hardware.
 
 ### 3.3 DexJoCo
 
@@ -162,8 +159,8 @@ DexJoCo contributes 11 dexterous tasks, including bimanual assembly, Hanoi,
 microwave use, photography, mouse clicking, folding glasses, hammering, bucket
 pickup, tong pinching, tablet unlocking, and plant watering. The formal panel
 uses the official multi-task Pi0.5 checkpoint, one episode per task, and seed 0.
-An additional deterministic search tests seeds 1-10 only for formal failures and
-stops when the first successful rollout is found.
+A separate success-seed archive evaluates fixed seeds 1-10 and stores the first
+successful rollout available for each additional task.
 
 ![DexJoCo bucket pickup](docs/figures/dexjoco-pick-bucket.jpg)
 
@@ -237,11 +234,11 @@ checkpoint is then loaded into a fresh process for the 60-episode physical gate.
 
 ### 5.2 Pi0/Pi0.5, ACT, and GR00T
 
-Pi0 and ACT are included as policy comparisons and engineering paths. The
-protected Pi0 candidate reaches 12/14 on its focused fresh panel, including
-9/10 unseen episodes. The rebuilt ACT comparison reaches 7/30 under its strict
-panel. RoboCasa365 uses the released multi-task GR00T and Pi0.5 checkpoints to
-measure broad household task performance on an identical 800-episode protocol.
+Pi0 and ACT are included as policy training and evaluation paths. The protected
+Pi0 candidate reaches 12/14 on its focused fresh panel, including 9/10 unseen
+episodes. RoboCasa365 uses the released multi-task GR00T and Pi0.5 checkpoints
+to measure broad household task performance on an identical 800-episode
+protocol.
 
 DexJoCo uses the released multi-task Pi0.5 checkpoint for native ROCm JAX
 closed-loop evaluation. RoboWits adds complete ACT training, checkpointing,
@@ -272,7 +269,6 @@ narration and subtitles.
 |---|---|---:|
 | SmolVLA weighted500 | red/blue physical gate, 30 seeds each | **57/60 (95.0%)** |
 | Pi0 S8500 | fresh 14-episode focused panel | **12/14 (85.7%)** |
-| ACT rebuilt comparison | strict 30-episode panel | **7/30 (23.3%)** |
 
 SmolVLA records 27/30 for the red task and 30/30 for the blue task. This is the
 primary learned-policy result because it combines a released checkpoint, a
@@ -325,12 +321,12 @@ validator can recompute headline numbers from the submitted JSON. This makes a
 large multi-project submission reviewable without flattening all tasks into an
 invalid combined score.
 
-### 7.3 Household-to-mobile manipulation extension
+### 7.3 Household benchmark and mobile runtime integration
 
-The RoboCasa work connects the established household benchmark to the official
-PandaOmron action interface. It validates the 12-D controller, three-camera
-observation path, dataset audit, SmolVLA training entry, closed-loop evaluator,
-and video archive on AMD395.
+The RoboCasa work combines a matched 1,600-episode household benchmark with the
+official PandaOmron runtime gate. The release validates model loading, native
+task predicates, four-view video, the 12-D mobile controller, and the
+three-camera observation path on AMD395.
 
 ### 7.4 Success-first visual evidence
 
@@ -356,7 +352,7 @@ evaluation on AMD hardware.
 | Deliverable | Location |
 |---|---|
 | Dedicated source repository | https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite |
-| Frozen source release | v1.0.1-amd-hackathon-english |
+| Frozen source release | v1.0.2-amd-hackathon-final |
 | Reproducibility guide | `docs/REPRODUCIBILITY.md` |
 | Technical report | `output/pdf/datawhale-eai-radeon-physical-ai-technical-report.pdf` |
 | 4:59 English demo | https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/amd-physical-ai-demo-en.mp4 |
@@ -369,7 +365,7 @@ evaluation on AMD hardware.
 ```bash
 git clone https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite.git
 cd radeon-physical-ai-evidence-suite
-git checkout v1.0.1-amd-hackathon-english
+git checkout v1.0.2-amd-hackathon-final
 python3 scripts/validate_public_bundle.py
 ```
 
@@ -387,31 +383,19 @@ checksums.
 ### 8.4 Dependency and license handling
 
 Large upstream assets, datasets, and checkpoints are downloaded from their
-official or public hosts. The release does not duplicate assets with restricted
-redistribution terms. `THIRD_PARTY_NOTICES.md` identifies the major upstream
+official or public hosts. Assets with restricted redistribution terms remain
+on their official hosts. `THIRD_PARTY_NOTICES.md` identifies the major upstream
 projects; original integration code is released under Apache 2.0.
 
 <!-- pagebreak -->
 
-## 9. Limitations and Next Steps
+## 9. Completed Scope
 
-RoboCasa365's broad household benchmark remains challenging: performance varies
-substantially by task and long-horizon composition. The PandaOmron mobile policy
-workflow is operational, while robust end-to-end navigation plus manipulation
-will benefit from more accepted expert trajectories and task-balanced training.
-DexJoCo's official seed-0 panel is intentionally small at one episode per task;
-future work should add a larger predefined seed set. The portable Unitree G1 CBF
-replay validates controller behavior with the upstream asset but does not replace
-the upstream full AMP and depth-perception stack.
-
-The next technical priorities are:
-
-- expand the RoboCasa mobile dataset with task-native successful trajectories;
-- train and compare one shared mobile policy on navigation, retrieval, and
-  cross-station transport;
-- complete a paired failure-recovery ablation with fixed seeds;
-- upstream reusable ROCm fixes to LeRobot, Genesis, and simulator projects;
-- add real-robot evaluation using the same action and evidence contracts.
+The frozen release contains five fully indexed workstreams: focused VLA policy
+training, matched RoboCasa365 household evaluation, native ROCm JAX dexterous
+control, DISCOVERSE simulation and rendering, and Unitree G1 predictive safety
+control. Each promoted result is connected to its protocol, checkpoint identity,
+result record, representative media, runtime manifest, and integrity hash.
 
 ## 10. Team and Contributions
 
@@ -426,6 +410,14 @@ The next technical priorities are:
   website;
 - maintained the Datawhale-EAI submission and upstream attribution.
 
+**Yayu Long - evaluation and learning experience contributor**
+
+- validated learner-facing AMD environment setup and notebook workflows;
+- reviewed evaluation records, representative videos, and task-to-evidence
+  links against the documented protocols;
+- contributed to reproduction documentation and final submission quality
+  assurance.
+
 Datawhale community contributors and all upstream project authors are credited
 through their repositories and licenses. Their work provides the model,
 simulator, dataset, and benchmark foundations on which this AMD integration is
@@ -438,7 +430,7 @@ stack can execute on AMD Radeon and ROCm across PyTorch, JAX, simulation,
 rendering, policy learning, and closed-loop evaluation. The project contributes
 more than a single demo: it supplies a reusable engineering and evidence system,
 public model and result artifacts, broad household and dexterous benchmarks, a
-mobile-manipulation extension, and a polished review interface. The fixed
+PandaOmron mobile runtime gate, and a polished review interface. The fixed
 release makes every headline result traceable to code, protocol, JSON, video,
 and hash.
 

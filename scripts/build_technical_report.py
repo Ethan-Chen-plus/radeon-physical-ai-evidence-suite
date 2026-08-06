@@ -246,7 +246,7 @@ def page_header_footer(canvas, doc) -> None:
 
 
 def cover_story() -> list:
-    hero = scaled_image(ROOT / "docs/figures/mobile-manipulation-home.png", PAGE_W - 34 * mm, 91 * mm)
+    hero = scaled_image(ROOT / "docs/figures/robocasa-cover-close-fridge.jpg", PAGE_W - 34 * mm, 91 * mm)
     return [
         Spacer(1, 7 * mm),
         Paragraph("AMD AI DEVMASTER HACKATHON 2026 | TRACK 3", STYLES["ReportSubtitle"]),
@@ -260,7 +260,7 @@ def cover_story() -> list:
         Spacer(1, 6 * mm),
         Table([
             [Paragraph("TEAM", STYLES["TableHead"]), Paragraph("PLATFORMS", STYLES["TableHead"]), Paragraph("DELIVERY", STYLES["TableHead"])],
-            [Paragraph("Datawhale-EAI<br/>Kewei Chen", STYLES["TableCell"]), Paragraph("Radeon PRO W7900<br/>Ryzen AI MAX+ 395", STYLES["TableCell"]), Paragraph("Source + PDF + 4:59 video<br/>JSON + SHA + website", STYLES["TableCell"])],
+            [Paragraph("Datawhale-EAI<br/>Kewei Chen<br/>Yayu Long", STYLES["TableCell"]), Paragraph("Radeon PRO W7900<br/>Ryzen AI MAX+ 395", STYLES["TableCell"]), Paragraph("Source + PDF + 4:59 video<br/>JSON + SHA + website", STYLES["TableCell"])],
         ], colWidths=[(PAGE_W - 34 * mm) / 3] * 3, style=TableStyle([
             ("BACKGROUND", (0, 0), (-1, 0), NAVY),
             ("BACKGROUND", (0, 1), (-1, 1), PALE),
@@ -271,7 +271,7 @@ def cover_story() -> list:
             ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
         ])),
         Spacer(1, 4 * mm),
-        Paragraph("Submission version v1.0.1-amd-hackathon-english | August 2026", STYLES["Meta"]),
+        Paragraph("Submission version v1.0.2-amd-hackathon-final | August 2026", STYLES["Meta"]),
         PageBreak(),
     ]
 
@@ -284,7 +284,7 @@ def build(output: Path, source: Path) -> None:
         str(output), pagesize=A4, leftMargin=17 * mm, rightMargin=17 * mm,
         topMargin=17 * mm, bottomMargin=16 * mm,
         title="Radeon Physical AI Evidence Suite - Track 3 Technical Report",
-        author="Datawhale-EAI / Kewei Chen",
+        author="Datawhale-EAI / Kewei Chen / Yayu Long",
         subject="AMD AI DevMaster Hackathon 2026 Track 3",
     )
     doc.addPageTemplates([template])

@@ -1,7 +1,7 @@
 # Radeon Physical AI Evidence Suite
 
 <p align="center">
-  <img src="docs/figures/mobile-manipulation-home.png" width="100%" alt="A mobile manipulator completing a household task in the Radeon Physical AI Evidence Suite" />
+  <img src="docs/figures/robocasa-cover-close-fridge.jpg" width="100%" alt="RoboCasa365 CloseFridge multi-view household manipulation on AMD Radeon" />
 </p>
 
 <p align="center">
@@ -66,15 +66,10 @@ dexterous tasks, simulator migration, and predictive collision avoidance.
     </td>
   </tr>
   <tr>
-    <td width="50%">
+    <td colspan="2">
       <img src="docs/figures/smolvla-cup-success.jpg" width="100%" alt="SmolVLA strict red-cup grasp success" /><br />
       <strong>Every Embodied SmolVLA</strong><br />
       A protected checkpoint reaches 57/60 strict physical successes.
-    </td>
-    <td width="50%">
-      <img src="docs/figures/mobile-manipulation-home.png" width="100%" alt="Mobile manipulation task in a household environment" /><br />
-      <strong>Household mobile manipulation</strong><br />
-      A unified task surface for navigation, approach, grasp, transport, and placement.
     </td>
   </tr>
 </table>
@@ -89,13 +84,13 @@ dexterous tasks, simulator migration, and predictive collision avoidance.
 |---|---|---|
 | Every Embodied SmolVLA | W7900 training, Ryzen AI MAX+ 395 evaluation | **57/60** strict physical successes; red 27/30, blue 30/30 |
 | RoboCasa365 | Ryzen AI MAX+ 395, PyTorch and ROCm | GR00T **230/800** and Pi0.5 **142/800** over the same 16 tasks x 50 episodes |
-| DexJoCo Pi0.5 | Ryzen AI MAX+ 395, ROCm JAX 0.10 | **5/11** at official seed 0; first-success search found reproducible successes for 10/11 tasks |
+| DexJoCo Pi0.5 | Ryzen AI MAX+ 395, ROCm JAX 0.10 | **5/11** at official seed 0; deterministic success traces archived for 10/11 tasks |
 | DISCOVERSE | Ryzen AI MAX+ 395, ROCm | 18/18 runtime gates, AIRBOT 12/12, MMK2 8/8, four 1080p three-view task videos |
 | Predictive CBF for Unitree G1 | Ryzen AI MAX+ 395, ROCm Torch and MuJoCo | 8/8 fixed-seed collision-avoidance replays; minimum clearance 0.422 m |
 
-The suite also includes the official PandaOmron 12-D mobile-manipulation action
-contract, RoboWits ACT training and evaluation tooling, native ROCm JAX setup,
-3D Gaussian Splatting validation, and an English evidence website.
+The suite also includes an official PandaOmron 12-D action-contract gate,
+RoboWits ACT training and checkpoint tooling, native ROCm JAX setup, 3D Gaussian
+Splatting validation, and an English evidence website.
 
 ## System
 
@@ -174,6 +169,12 @@ Every Embodied PyTorch path records PyTorch 2.11.0 with HIP 7.13.
 system architecture, AMD ROCm and JAX migration, simulator integration, model
 training and evaluation, evidence validation, technical writing, demo video,
 and the public showcase.
+
+**Yayu Long - evaluation and learning experience contributor.** Responsibilities
+include validating learner-facing AMD environment and notebook workflows,
+reviewing evaluation records and representative videos against task protocols,
+and contributing to reproduction documentation and final submission quality
+assurance.
 
 Datawhale community projects and upstream robotics repositories are credited in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Original integration scripts

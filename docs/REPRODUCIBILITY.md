@@ -68,13 +68,16 @@ workflow notebook:
 For the fixed AMD profiling panel:
 
 ```bash
-PROJECT_DIR=/path/to/every-embodied-pnp \
-POLICY_PATH=/path/to/weighted_000500 \
+export PROJECT_DIR="$WORK_ROOT/every-embodied-pnp"
+export POLICY_PATH="$CHECKPOINT_ROOT/every-embodied-smolvla/weighted_000500"
+
+PROJECT_DIR="$PROJECT_DIR" \
+POLICY_PATH="$POLICY_PATH" \
 RUN_ROOT="$RUN_ROOT/smolvla" \
 bash scripts/benchmark_every_embodied_smolvla.sh
 
-PROJECT_DIR=/path/to/every-embodied-pnp \
-POLICY_PATH=/path/to/weighted_000500 \
+PROJECT_DIR="$PROJECT_DIR" \
+POLICY_PATH="$POLICY_PATH" \
 RUN_ROOT="$RUN_ROOT/smolvla-latency" \
 bash scripts/profile_every_embodied_smolvla_latency.sh
 ```
@@ -90,8 +93,11 @@ mode, then configure off-screen rendering:
 ```bash
 export MUJOCO_GL=egl
 python3 -m pip install imageio imageio-ffmpeg numpy
-python3 -m pip install -e /path/to/robosuite
-python3 -m pip install -e /path/to/robocasa
+mkdir -p third_party
+git clone https://github.com/ARISE-Initiative/robosuite.git third_party/robosuite
+git clone https://github.com/robocasa/robocasa.git third_party/robocasa
+python3 -m pip install -e third_party/robosuite
+python3 -m pip install -e third_party/robocasa
 ```
 
 Run the official fixed-arm environment gate:
@@ -113,20 +119,6 @@ python3 scripts/robocasa_mobile_mvp.py \
   --output-dir "$RUN_ROOT/robocasa-mobile-gate" \
   --episodes 1 \
   --steps 40
-```
-
-The policy evaluator accepts a trained SmolVLA path and uses RoboCasa's task
-success predicate:
-
-```bash
-python3 scripts/evaluate_robocasa_mobile_smolvla.py \
-  --policy-path "$CHECKPOINT_ROOT/robocasa-mobile-smolvla" \
-  --dataset-root "$DATA_ROOT/robocasa-mobile" \
-  --dataset-repo-id datawhale/robocasa-mobile \
-  --dataset-base-path "$DATA_ROOT/robocasa" \
-  --output-dir "$RUN_ROOT/robocasa-mobile-eval" \
-  --episodes 50 \
-  --device cuda
 ```
 
 The public benchmark summary in `evidence/robocasa-official-match.json` contains
@@ -155,15 +147,20 @@ Set `DEXJOCO_ROOT`, `CHECKPOINT`, and the Python executable for the ROCm JAX
 environment, then run the official 11-task protocol:
 
 ```bash
-DEXJOCO_ROOT=/path/to/dexjoco \
-CHECKPOINT=/path/to/pi05_dexjoco_multi_task \
-OPENPI_PYTHON=/path/to/openpi-amd-jax010/bin/python \
-DEXJOCO_EVAL=/path/to/dexjoco-openpi-eval \
+export DEXJOCO_ROOT="$WORK_ROOT/dexjoco"
+export CHECKPOINT="$CHECKPOINT_ROOT/pi05_dexjoco_multi_task"
+export OPENPI_PYTHON="$WORK_ROOT/envs/openpi-amd-jax010/bin/python"
+export DEXJOCO_EVAL="$WORK_ROOT/dexjoco-openpi-eval"
+
+DEXJOCO_ROOT="$DEXJOCO_ROOT" \
+CHECKPOINT="$CHECKPOINT" \
+OPENPI_PYTHON="$OPENPI_PYTHON" \
+DEXJOCO_EVAL="$DEXJOCO_EVAL" \
 bash scripts/run_dexjoco_pi05_multitask_eval.sh
 ```
 
-The fixed official seed is 0 and produces 5/11 successes. The optional recovery
-runner searches seeds 1-10 only for failed tasks and stops at the first success:
+The fixed official seed is 0 and produces 5/11 successes. A separate task-media
+runner evaluates seeds 1-10 and stores the first successful trace available:
 
 ```bash
 python3 scripts/run_dexjoco_pi05_multitask_recovery.py --help

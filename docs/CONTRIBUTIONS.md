@@ -7,9 +7,8 @@ projects with new AMD-focused integration, evaluation, and publication work.
 
 1. ROCm PyTorch and native ROCm JAX execution paths across the selected policy
    and simulator stacks.
-2. A RoboCasa PandaOmron mobile-manipulation interface with a 12-dimensional
-   action contract, three-camera observations, dataset tools, training entry,
-   and closed-loop evaluator.
+2. A matched RoboCasa365 GR00T/Pi0.5 evaluation workflow plus a PandaOmron
+   12-dimensional action and three-camera runtime gate.
 3. Shared evidence records that connect task protocol, checkpoint identity,
    result JSON, video, telemetry, and SHA-256.
 4. AMD profiling tools for policy latency, simulator throughput, GPU use, and
@@ -32,3 +31,7 @@ its upstream license and model or dataset terms.
 **Kewei Chen, project lead and primary maintainer:** system architecture,
 ROCm/JAX migration, simulator integration, training and evaluation, evidence
 validation, report, film, and website.
+
+**Yayu Long, evaluation and learning experience contributor:** learner-facing
+AMD environment and notebook validation, evaluation and representative-video
+review, reproduction documentation, and final submission quality assurance.

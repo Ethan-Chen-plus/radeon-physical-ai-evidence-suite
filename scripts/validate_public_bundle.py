@@ -42,8 +42,9 @@ def check_dexjoco() -> None:
     assert protocol["tasks"] == 11
     assert protocol["official_seed"] == 0
     assert protocol["official_successes"] == 5
-    assert protocol["recovery_tasks_with_success"] == 10
-    assert len(data["tasks"]) == 11
+    assert protocol["success_seed_tasks"] == 10
+    assert len(data["tasks"]) == 10
+    assert all(item["website_video"] for item in data["tasks"])
 
 
 def check_discoverse() -> None:

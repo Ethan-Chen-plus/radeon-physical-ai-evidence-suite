@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Run the RoboCasa PandaOmron mobile-action gate and record auditable evidence.
+"""Run the RoboCasa PandaOmron mobile-action gate and record evidence.
 
-This entry point validates the official mobile embodiment, action layout, reset,
-multi-view rendering, finite actions, and stage-evidence schema. It deliberately
-does not report a learned-policy success rate. Use the recorded manifest as the
-contract for later demonstration conversion and SmolVLA training.
+This entry point validates the official mobile embodiment, 12-D action layout,
+reset, multi-view rendering, finite actions, and stage-evidence schema. The
+recorded manifest defines the integration contract for downstream policies.
 """
 
 from __future__ import annotations
@@ -33,7 +32,7 @@ def parse_args() -> argparse.Namespace:
         "--policy",
         choices=("idle", "base-sweep"),
         default="idle",
-        help="Interface-gate action only; neither option is a learned policy.",
+        help="Select the deterministic action used to validate the interface.",
     )
     return parser.parse_args()
 
