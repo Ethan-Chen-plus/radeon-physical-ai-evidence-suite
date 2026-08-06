@@ -11,7 +11,7 @@ rendering, performance telemetry, and SHA-pinned evidence.
 |---|---|
 | Technical report | English PDF in this PR and source repository |
 | Source code | https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite |
-| Frozen release | https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite/releases/tag/v1.0.0-amd-hackathon |
+| Frozen release | https://github.com/Ethan-Chen-plus/radeon-physical-ai-evidence-suite/releases/tag/v1.0.1-amd-hackathon-english |
 | Reproducibility | `docs/REPRODUCIBILITY.md` plus `scripts/validate_public_bundle.py` |
 | Demo video | https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/amd-physical-ai-demo-en.mp4 |
 | Interactive showcase | https://ethan-chen-plus.github.io/amd-physical-ai-showcase/ |

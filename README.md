@@ -27,7 +27,7 @@ dexterous tasks, simulator migration, and predictive collision avoidance.
 
 The suite also includes the official PandaOmron 12-D mobile-manipulation action
 contract, RoboWits ACT training and evaluation tooling, native ROCm JAX setup,
-3D Gaussian Splatting validation, and a bilingual evidence website.
+3D Gaussian Splatting validation, and an English evidence website.
 
 ## System
 

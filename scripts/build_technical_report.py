@@ -271,7 +271,7 @@ def cover_story() -> list:
             ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
         ])),
         Spacer(1, 4 * mm),
-        Paragraph("Submission version v1.0.0-amd-hackathon | August 2026", STYLES["Meta"]),
+        Paragraph("Submission version v1.0.1-amd-hackathon-english | August 2026", STYLES["Meta"]),
         PageBreak(),
     ]
 

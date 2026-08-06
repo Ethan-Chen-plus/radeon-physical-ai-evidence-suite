@@ -71,7 +71,15 @@ def check_demo() -> None:
     assert data["resolution"] == "1920x1080"
     assert data["fps"] == 30
     languages = {item["language"] for item in data["deliverables"]}
-    assert {"English", "Chinese", "Bilingual"}.issubset(languages)
+    assert languages == {
+        "English",
+        "English subtitles",
+        "Unitree G1 free-base whole-body dodge film",
+        "Unitree G1 poster",
+        "Unitree G1 evaluation JSON",
+        "Unitree G1 run manifest",
+        "Unitree G1 free-base artifact checksums",
+    }
 
 
 def check_release_files() -> None:

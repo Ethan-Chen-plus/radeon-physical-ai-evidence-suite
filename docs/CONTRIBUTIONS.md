@@ -17,8 +17,8 @@ projects with new AMD-focused integration, evaluation, and publication work.
 5. DISCOVERSE multi-view, expert-data, and 3DGS validation workflows on AMD.
 6. A portable Unitree G1 predictive-CBF replay implemented with ROCm PyTorch
    and MuJoCo.
-7. An English technical report, a 4:59 demonstration film, an interactive
-   bilingual showcase, and a deterministic release validator.
+7. An English technical report, a 4:59 demonstration film, an English
+   interactive showcase, and a deterministic release validator.
 
 ## Upstream Foundations
 

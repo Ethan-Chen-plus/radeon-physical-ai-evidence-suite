@@ -25,7 +25,7 @@ RoboCasa365 | DexJoCo | DISCOVERSE | Every Embodied | PAC-MAN
    evaluation workflow.
 3. Shared evidence contract across heterogeneous robotics benchmarks.
 4. Closed-loop result records tied to checkpoints, media, manifests, and hashes.
-5. Public model artifacts, native notebooks, bilingual site, and 4:59 demo film.
+5. Public model artifacts, native notebooks, an English project site, and a 4:59 demo film.
 
 ## Main Outputs
 
@@ -35,4 +35,3 @@ RoboCasa365 | DexJoCo | DISCOVERSE | Every Embodied | PAC-MAN
 - public model repositories and compact result JSON;
 - success-first interactive evidence website;
 - SHA-256 release manifest and deterministic bundle validator.
-
