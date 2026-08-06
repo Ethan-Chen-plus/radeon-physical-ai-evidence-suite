@@ -1,5 +1,27 @@
 # Radeon Physical AI Evidence Suite
 
+<p align="center">
+  <img src="docs/figures/mobile-manipulation-home.png" width="100%" alt="A mobile manipulator completing a household task in the Radeon Physical AI Evidence Suite" />
+</p>
+
+<p align="center">
+  <strong>One AMD-native workflow for household manipulation, dexterous control, simulation, rendering, and robot safety.</strong>
+</p>
+
+<p align="center">
+  <img alt="Track 3 Physical AI" src="https://img.shields.io/badge/Track_3-Physical_AI-ED1C24" />
+  <img alt="AMD ROCm" src="https://img.shields.io/badge/AMD-ROCm-111111" />
+  <img alt="PyTorch and JAX" src="https://img.shields.io/badge/Frameworks-PyTorch_%7C_JAX-0F766E" />
+  <img alt="License Apache 2.0" src="https://img.shields.io/badge/License-Apache_2.0-2563EB" />
+</p>
+
+<p align="center">
+  <a href="https://ethan-chen-plus.github.io/amd-physical-ai-showcase/"><strong>Live Showcase</strong></a> ·
+  <a href="https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/amd-physical-ai-demo-en.mp4"><strong>4:59 Demo Film</strong></a> ·
+  <a href="output/pdf/datawhale-eai-radeon-physical-ai-technical-report.pdf"><strong>Technical Report</strong></a> ·
+  <a href="docs/REPRODUCIBILITY.md"><strong>Reproduce on AMD</strong></a>
+</p>
+
 **Track 3 - Physical AI | Datawhale-EAI | AMD AI DevMaster Hackathon 2026**
 
 Radeon Physical AI Evidence Suite is a reproducible collection of robot-learning,
@@ -8,12 +30,58 @@ ROCm. It connects model training, closed-loop evaluation, multi-view video,
 hardware telemetry, and SHA-pinned evidence across household manipulation,
 dexterous tasks, simulator migration, and predictive collision avoidance.
 
-[Live showcase](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/) |
-[4:59 demo video](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/amd-physical-ai-demo-en.mp4) |
-[Technical report](output/pdf/datawhale-eai-radeon-physical-ai-technical-report.pdf) |
-[Reproduction guide](docs/REPRODUCIBILITY.md) |
-[AMD environment matrix](docs/ENVIRONMENT_MATRIX.md) |
-[Evidence manifest](evidence/README.md)
+## Review in Three Paths
+
+| Path | What it provides | Entry point |
+|---|---|---|
+| Interactive | Success-first task gallery, benchmark tables, migration case studies, and downloadable evidence | [Open the live showcase](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/) |
+| Deterministic | Validate result JSON, release files, and SHA-256 integrity without a GPU | `python3 scripts/validate_public_bundle.py` |
+| Visual | A 4:59 English film assembled from real closed-loop task footage | [Watch the 1080p demo](https://ethan-chen-plus.github.io/amd-physical-ai-showcase/assets/videos/amd-physical-ai-demo-en.mp4) |
+
+## Visual Evidence
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/figures/robocasa-gr00t-success.jpg" width="100%" alt="RoboCasa365 GR00T multi-view household manipulation success" /><br />
+      <strong>RoboCasa365 household manipulation</strong><br />
+      GR00T and Pi0.5 evaluated under the same 16-task, 800-episode protocol.
+    </td>
+    <td width="50%">
+      <img src="docs/figures/dexjoco-pick-bucket.jpg" width="100%" alt="DexJoCo Pi0.5 dexterous pick-bucket task" /><br />
+      <strong>DexJoCo dexterous control</strong><br />
+      Native ROCm JAX 0.10 inference across eleven dexterous-hand tasks.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="docs/figures/discoverse-box-pick.jpg" width="100%" alt="DISCOVERSE three-view MMK2 box-pick replay on AMD" /><br />
+      <strong>DISCOVERSE simulation and rendering</strong><br />
+      Three synchronized 1080p views with task predicates and replay artifacts.
+    </td>
+    <td width="50%">
+      <img src="docs/figures/pacman-g1.jpg" width="100%" alt="Unitree G1 whole-body predictive CBF dodge replay" /><br />
+      <strong>PAC-MAN whole-body safety control</strong><br />
+      Duck and sidestep responses driven by an upstream 960-D to 29-joint policy.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="docs/figures/smolvla-cup-success.jpg" width="100%" alt="SmolVLA strict red-cup grasp success" /><br />
+      <strong>Every Embodied SmolVLA</strong><br />
+      A protected checkpoint reaches 57/60 strict physical successes.
+    </td>
+    <td width="50%">
+      <img src="docs/figures/mobile-manipulation-home.png" width="100%" alt="Mobile manipulation task in a household environment" /><br />
+      <strong>Household mobile manipulation</strong><br />
+      A unified task surface for navigation, approach, grasp, transport, and placement.
+    </td>
+  </tr>
+</table>
+
+[AMD environment matrix](docs/ENVIRONMENT_MATRIX.md) ·
+[Evidence manifest](evidence/README.md) ·
+[Contribution boundary](docs/CONTRIBUTIONS.md)
 
 ## Highlights
 
